@@ -5,12 +5,9 @@ const { readdirSync } = require("fs")
 const moment = require("moment");
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-
-let token = config.token
-
 client.commands = new Collection()
 
-const rest = new REST({ version: '9' }).setToken(token);
+const rest = new REST({ version: '9' }).setToken(config.token);
 
 const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
 
@@ -23,37 +20,57 @@ readdirSync('./src/commands').forEach(async file => {
 })
 
 client.on("ready", async () => {
-        try {
-            await rest.put(
-                Routes.applicationCommands(client.user.id),
-                { body: commands },
-            );
-        } catch (error) {
-            console.error(error);
-        }
-    log(`${client.user.username}`);
+  try {
+    await rest.put(
+      Routes.applicationCommands(client.user.id),
+      { body: commands },
+    );
+  } catch (error) {
+    console.error(error);
+  }
+  log(`${client.user.username}`);
 })
+
+// member chat with bot
+client.on("messageCreate", (msg) => {
+  if (msg.channel.id == config.conversationChannels) {
+    const conversation = require('./src/message/botconversation.js')
+    // const memberMsgContent = memberMsgArgs.slice(1, memberMsgArgs.length).join(' ');
+    const memberMessage = config.memberMessageAls;
+    if (msg.author.bot) {
+      return;
+    } else {
+      if (memberMessage.some((word) => msg.content.toLowerCase().includes(word))) {
+        const AliasMessage = 'hello';
+        conversation.conversationBot(AliasMessage, msg)
+      } else {
+        conversation.conversationBot(msg.content, msg)
+      }
+    }
+  }
+})
+
 
 //event-handler
 readdirSync('./src/events').forEach(async file => {
-	const event = require(`./src/events/${file}`);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
+  const event = require(`./src/events/${file}`);
+  if (event.once) {
+    client.once(event.name, (...args) => event.execute(...args));
+  } else {
+    client.on(event.name, (...args) => event.execute(...args));
+  }
 })
 
 //nodejs-events
-process.on("unhandledRejection", e => { 
-   console.log(e)
- }) 
-process.on("uncaughtException", e => { 
-   console.log(e)
- })  
-process.on("uncaughtExceptionMonitor", e => { 
-   console.log(e)
- })
+process.on("unhandledRejection", e => {
+  console.log(e)
+})
+process.on("uncaughtException", e => {
+  console.log(e)
+})
+process.on("uncaughtExceptionMonitor", e => {
+  console.log(e)
+})
 //
 
-client.login(token)
+client.login(config.token)
