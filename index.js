@@ -41,7 +41,7 @@ client.on("messageCreate", (msg) => {
       return;
     } else {
       if (memberMessage.some((word) => msg.content.toLowerCase().includes(word))) {
-        const AliasMessage = 'hello';
+        const AliasMessage = 'hello, how are you today?';
         conversation.conversationBot(AliasMessage, msg)
       } else {
         conversation.conversationBot(msg.content, msg)
