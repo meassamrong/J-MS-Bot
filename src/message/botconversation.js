@@ -27,23 +27,14 @@ async function CheckRes(resResult, msg) {
     const messageResply = await msg.reply('You question on process.....!');
     for (let i = 0; i < arrayMessageRes.length; i++) {
         // const randomTimeEdit = Math.floor(Math.random() * 150);
-        setTimeout(async () => {
+        setTimeout(() => {
             newArrayMessageRes.push(arrayMessageRes[i]);
-
         }, i * 100);
         //send message as fake write to text channel      
         setTimeout(async () => {
-            console.log(`message length ${arrayMessageRes.length} || count I ${i += 1}`);
-            messageResply.edit(newArrayMessageRes.join(' ').toString(' '))
-        }, i * 500);
+            // console.log(`message length ${arrayMessageRes.length} || count I ${i += 1}`);
+         await messageResply.edit(newArrayMessageRes.join(' ').toString(' '))
+        }, i * 400);
     }
-    // if(resAsCode.some((word) => resResult.toLowerCase().includes(word))){
-
-    //     msg.reply("```diff" + resResult + "```")
-    // }else {
-
-    //     msg.reply()
-    // }
-    //update message fake write
 }
 module.exports = botConverSa
