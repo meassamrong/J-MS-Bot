@@ -7,18 +7,18 @@ module.exports = {
   memberMessageAls: [
   ],
   codePreLeng : [
-    "const",
-    "var",
-    "//",
-    "requerie",
-    "const response",
-    "print",
-    "#include",
-    "<html>",
-    "<header>",
-    "</div>",
-    "<div>",
-    "def",
-    "<style>"
+    "php",
+    "javacript",
+    "html",
+    "python",
+    "C++",
+    "C langauge",
+    "C#",
+    "react js",
+    "flutter",
+    "java",
+    "css",
+    "jquery",
+    "laraval",
   ]
 }
