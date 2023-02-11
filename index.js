@@ -20,6 +20,19 @@ readdirSync('./src/commands').forEach(async file => {
 })
 
 client.on("ready", async () => {
+  //post news Feed
+  const channelnews = client.channels.cache.get(config.newFeedChannels);
+  const postNewFeed = require('./src/message/post_newfeed.js')
+  //get the mins of the current time
+  let postDelay =  14400000 ; //14400000
+  setInterval(() => {
+    const randomSendTime = Math.floor(Math.random() * postDelay)
+    postDelay = randomSendTime;
+    postNewFeed.postNewsFeed(channelnews)
+    console.log(`New Time ${postDelay}`)
+  }, postDelay)
+
+  //Synce Commands
   try {
     await rest.put(
       Routes.applicationCommands(client.user.id),
@@ -49,6 +62,7 @@ client.on("messageCreate", (msg) => {
     }
   }
 })
+
 
 
 //event-handler
