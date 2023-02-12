@@ -23,15 +23,15 @@ client.on("ready", async () => {
   //post news Feed
   const channelnews = client.channels.cache.get(config.newFeedChannels);
   const postNewFeed = require('./src/message/post_newfeed.js')
-  //get the mins of the current time
-  let postDelay =  14400000 ; //14400000
+
+  let postDelay =  Math.floor(Math.random() * 14400000); //14400000
   setInterval(() => {
-    const randomSendTime = Math.floor(Math.random() * postDelay)
+    const randomSendTime = Math.floor(Math.random() * 14400000)
     postDelay = randomSendTime;
     postNewFeed.postNewsFeed(channelnews)
-    console.log(`New Time ${postDelay}`)
+    // console.log(`New Time ${postDelay}`)
   }, postDelay)
-
+ //console.log(postDelay)
   //Synce Commands
   try {
     await rest.put(

@@ -9,11 +9,11 @@ const botConverSa = {
         const res = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: msgContent,
-            temperpickupRessature: 0,
-            max_tokens: 250,
+            temperature: 0.9,
+            max_tokens: 200,    
             top_p: 1,
             frequency_penalty: 0,
-            presence_penalty: 0,
+            presence_penalty: 0.6,
         })
         const result = res.data.choices[0].text;
         CheckRes(result, msg);

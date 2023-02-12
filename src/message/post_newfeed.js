@@ -25,14 +25,14 @@ async function randomImage(channel) {
     const API = new Anime_Images();
     const imagesFuncArr = ["hug()", "kiss()", "slap()", "punch()", "punch()", "pat()", "kill()", "cuddle()"]
     const randomNumberOfImage = Math.floor(Math.random() * imagesFuncArr.length);
-    if (0 == 0) {
+    if (randomNumberOfImage == 0) {
         let { image } = await API.sfw.hug();
         const messageEmbed = new MessageEmbed()
             .setColor("RANDOM")
             .setTitle(apiResponse)
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
-            .setFooter({ text: 'This Image and quotes is random from internet', iconURL: image });
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
             channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
                 embedMessage.react("👍")
                 embedMessage.react("❤️")
@@ -40,30 +40,103 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else if (randomNumberOfImage == 1) {
         let { image } = await API.sfw.kiss();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else if (randomNumberOfImage == 2) {
         let { image } = await API.sfw.slap();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else if (randomNumberOfImage == 3) {
         let { image } = await API.sfw.punch();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else if (randomNumberOfImage == 4) {
         let { image } = await API.sfw.pat();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else if (randomNumberOfImage == 5) {
         let { image } = await API.sfw.kill();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     } else {
         let { image } = await API.sfw.cuddle();
-        channel.send(image)
-        channel.send(apiResponse)
+        const messageEmbed = new MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(apiResponse)
+            .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
+            .setImage(image)
+            .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
+            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
+                embedMessage.react("👍")
+                embedMessage.react("❤️")
+                embedMessage.react("😂")
+                embedMessage.react("😥")
+                embedMessage.react("😡")
+            });
+        console.log(imagesFuncArr[randomNumberOfImage])
     }
 
 
