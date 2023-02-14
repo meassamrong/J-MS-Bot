@@ -24,14 +24,14 @@ client.on("ready", async () => {
   const channelnews = client.channels.cache.get(config.newFeedChannels);
   const postNewFeed = require('./src/message/post_newfeed.js')
 
-  let postDelay =  Math.floor(Math.random() * 14400000); //14400000
+  let postDelay = Math.floor(Math.random() * 14400000); //14400000
   setInterval(() => {
     const randomSendTime = Math.floor(Math.random() * 14400000)
     postDelay = randomSendTime;
     postNewFeed.postNewsFeed(channelnews)
     // console.log(`New Time ${postDelay}`)
   }, postDelay)
- //console.log(postDelay)
+  //console.log(postDelay)
   //Synce Commands
   try {
     await rest.put(
@@ -60,9 +60,24 @@ client.on("messageCreate", (msg) => {
         conversation.conversationBot(msg.content, msg)
       }
     }
+
+  }
+
+  //Simsimi Random reply member message
+  if (msg.channel.id == config.chatCh) {
+    const simsiApi = require('./src/message/simsimiap.js')
+    const chatCh = client.channels.cache.get(config.chatCh);
+    const randomReplyMessage = Math.floor(Math.random() * 1200);
+    if (msg.author.bot) {
+      return;
+    } else {
+      console.log(randomReplyMessage)
+      if (randomReplyMessage > 1000) {
+        simsiApi.randomReplyMessage(msg.content, chatCh)
+      }
+    }
   }
 })
-
 
 
 //event-handler

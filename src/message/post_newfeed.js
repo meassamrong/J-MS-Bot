@@ -1,6 +1,5 @@
 const Anime_Images = require('anime-images-api');
-const { MessageEmbed } = require('discord.js');
-const axios = require('axios');
+const { MessageEmbed } = require('discord.js')
 const request = require('request');
 const postNewsFeed = {
     postNewsFeed(channel) {
@@ -40,7 +39,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else if (randomNumberOfImage == 1) {
         let { image } = await API.sfw.kiss();
         const messageEmbed = new MessageEmbed()
@@ -56,7 +55,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else if (randomNumberOfImage == 2) {
         let { image } = await API.sfw.slap();
         const messageEmbed = new MessageEmbed()
@@ -72,7 +71,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else if (randomNumberOfImage == 3) {
         let { image } = await API.sfw.punch();
         const messageEmbed = new MessageEmbed()
@@ -88,7 +87,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else if (randomNumberOfImage == 4) {
         let { image } = await API.sfw.pat();
         const messageEmbed = new MessageEmbed()
@@ -104,7 +103,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else if (randomNumberOfImage == 5) {
         let { image } = await API.sfw.kill();
         const messageEmbed = new MessageEmbed()
@@ -120,7 +119,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     } else {
         let { image } = await API.sfw.cuddle();
         const messageEmbed = new MessageEmbed()
@@ -136,7 +135,7 @@ async function randomImage(channel) {
                 embedMessage.react("😥")
                 embedMessage.react("😡")
             });
-        console.log(imagesFuncArr[randomNumberOfImage])
+         
     }
 
 

@@ -24,7 +24,6 @@
   "dependencies": {
     "@discordjs/rest": "^0.3.0",
     "anime-images-api": "^2.0.0",
-    "axios": "^1.3.2",
     "discord.js": "^13.10.3",
     "express": "^4.17.3",
     "fs": "^0.0.2",
@@ -32,6 +31,7 @@
     "moment": "^2.29.2",
     "openai": "^3.1.0",
     "request": "^2.88.2",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "simsimi": "^3.0.0"
   }
 }

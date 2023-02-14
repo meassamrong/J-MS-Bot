@@ -5,6 +5,7 @@ module.exports = {
   OPEN_AI_API_KEY: "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",
   conversationChannels: "1011270171517788200",
   newFeedChannels: "1011270171517788200",
+  chatCh: "1011270171517788200",
   memberMessageAls: [
   ],
   codePreLeng : [
