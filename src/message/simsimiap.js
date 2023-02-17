@@ -3,10 +3,10 @@ const simsimi = require('simsimi')({
   });
    
 const randomReplyMessage={
-    randomReplyMessage(msgContent, msgCh) {
+    randomReplyMessage(msgContent, msg) {
         simsimi(msgContent)
         .then(response => {
-            msgCh.send(response);
+          msg.reply(response);
           //console.log('simsimi say:', response); // What's up ?
         });
     }

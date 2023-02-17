@@ -72,8 +72,9 @@ client.on("messageCreate", (msg) => {
       return;
     } else {
       console.log(randomReplyMessage)
+      //msg.reply(`message random as ${randomReplyMessage} of 1000 \n bot will respond more 1000 of value`)
       if (randomReplyMessage > 1000) {
-        simsiApi.randomReplyMessage(msg.content, chatCh)
+        simsiApi.randomReplyMessage(msg.content, msg)
       }
     }
   }
