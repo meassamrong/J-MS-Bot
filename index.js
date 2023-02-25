@@ -6,7 +6,7 @@ const moment = require("moment");
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 client.commands = new Collection()
-
+const { joinVoiceChannel,getVoiceConnection } = require('@discordjs/voice');
 const rest = new REST({ version: '9' }).setToken(config.token);
 
 const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
@@ -46,6 +46,8 @@ client.on("ready", async () => {
 
 // member chat with bot
 client.on("messageCreate", (msg) => {
+  // const voiceChannel = msg.member?.voice.channel;
+  // console.log(voiceChannel.guild)
   if (msg.channel.id == config.conversationChannels) {
     const conversation = require('./src/message/botconversation.js')
     // const memberMsgContent = memberMsgArgs.slice(1, memberMsgArgs.length).join(' ');
@@ -80,7 +82,18 @@ client.on("messageCreate", (msg) => {
   }
 })
 
-
+//call member name
+// const callMemberName = require('./src/events/sayWelcome.js')
+client.on('voiceStateUpdate', (oldState, newState) => {
+  const guilds = newState.guild.id;
+  const voiceChannel = newState.channelID;
+  joinVoiceChannel({
+    channelId: voiceChannel, // voice channel
+    guildId: guilds, //Server ID 
+    adapterCreator: newState.guild.voiceAdapterCreator,
+    selfDeaf: false,
+  });
+})
 //event-handler
 readdirSync('./src/events').forEach(async file => {
   const event = require(`./src/events/${file}`);

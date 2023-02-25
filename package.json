@@ -23,9 +23,9 @@
   "homepage": "https://github.com/meassamrong/bob-v2#readme",
   "dependencies": {
     "@discordjs/rest": "^0.3.0",
+    "@discordjs/voice": "^0.14.0",
     "anime-images-api": "^2.0.0",
     "discord.js": "^13.10.3",
-    "express": "^4.17.3",
     "fs": "^0.0.2",
     "https": "^1.0.0",
     "moment": "^2.29.2",
