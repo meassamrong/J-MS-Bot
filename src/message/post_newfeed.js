@@ -9,7 +9,7 @@ const postNewsFeed = {
 
 //request pickup from http 
 async function randomImage(channel) {
-    let apiResponse ;
+    let apiResponse;
     request('https://vinuxd.vercel.app/api/pickup', (error, response, body) => {
         if (!error && response.statusCode === 200) {
             apiResponse = JSON.parse(body).pickup;
@@ -32,14 +32,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else if (randomNumberOfImage == 1) {
         let { image } = await API.sfw.kiss();
         const messageEmbed = new MessageEmbed()
@@ -48,14 +48,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else if (randomNumberOfImage == 2) {
         let { image } = await API.sfw.slap();
         const messageEmbed = new MessageEmbed()
@@ -64,14 +64,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else if (randomNumberOfImage == 3) {
         let { image } = await API.sfw.punch();
         const messageEmbed = new MessageEmbed()
@@ -80,14 +80,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else if (randomNumberOfImage == 4) {
         let { image } = await API.sfw.pat();
         const messageEmbed = new MessageEmbed()
@@ -96,14 +96,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else if (randomNumberOfImage == 5) {
         let { image } = await API.sfw.kill();
         const messageEmbed = new MessageEmbed()
@@ -112,14 +112,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     } else {
         let { image } = await API.sfw.cuddle();
         const messageEmbed = new MessageEmbed()
@@ -128,14 +128,14 @@ async function randomImage(channel) {
             .setAuthor({ name: `${config.socialName[AppRandomNumber]}`, iconURL: `${config.socialIcon[AppRandomNumber]}`, url: image })
             .setImage(image)
             .setFooter({ text: "This Image and quotes is random from internet || © J'Corp#5228", iconURL: image });
-            channel.send({ embeds: [messageEmbed]}).then(embedMessage => {
-                embedMessage.react("👍")
-                embedMessage.react("❤️")
-                embedMessage.react("😂")
-                embedMessage.react("😥")
-                embedMessage.react("😡")
-            });
-         
+        channel.send({ embeds: [messageEmbed] }).then(embedMessage => {
+            embedMessage.react("👍")
+            embedMessage.react("❤️")
+            embedMessage.react("😂")
+            embedMessage.react("😥")
+            embedMessage.react("😡")
+        });
+
     }
 
 

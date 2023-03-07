@@ -29,10 +29,7 @@ client.on("ready", async () => {
     const randomSendTime = Math.floor(Math.random() * 14400000)
     postDelay = randomSendTime;
     postNewFeed.postNewsFeed(channelnews)
-    // console.log(`New Time ${postDelay}`)
   }, postDelay)
-  //console.log(postDelay)
-  //Synce Commands
   try {
     await rest.put(
       Routes.applicationCommands(client.user.id),
@@ -46,24 +43,21 @@ client.on("ready", async () => {
 
 // member chat with bot
 client.on("messageCreate", (msg) => {
-  // const voiceChannel = msg.member?.voice.channel;
-  // console.log(voiceChannel.guild)
-  if (msg.channel.id == config.conversationChannels) {
-    const conversation = require('./src/message/botconversation.js')
-    // const memberMsgContent = memberMsgArgs.slice(1, memberMsgArgs.length).join(' ');
-    const memberMessage = config.memberMessageAls;
-    if (msg.author.bot) {
-      return;
-    } else {
-      if (memberMessage.some((word) => msg.content.toLowerCase().includes(word))) {
-        const AliasMessage = 'hello, how are you today?';
-        conversation.conversationBot(AliasMessage, msg)
-      } else {
-        conversation.conversationBot(msg.content, msg)
-      }
+  if (msg.channel.id == config.conversationChannels){
+    const codePreLeng = config.codePreLeng;
+    const requestAsCode = codePreLeng.some((word) => msg.content.toLowerCase().includes(word))
+    if(msg.author.bot) {return false} ;
+    if(!requestAsCode){
+      //response as coversation
+         const conversation = require('./src/message/botconversation.js')
+      conversation.conversationBot(msg)
+      
+    }else{
+      //response as cod
+      const botResponASCode = require('./src/message/botrespondsascode.js')
+      botResponASCode.resondindAscode(msg)
     }
-
-  }
+}
 
   //Simsimi Random reply member message
   if (msg.channel.id == config.chatCh) {

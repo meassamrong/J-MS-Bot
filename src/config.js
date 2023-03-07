@@ -10,7 +10,7 @@ module.exports = {
   ],
   codePreLeng : [
     "php",
-    "javacript",
+    "javascript",
     "html",
     "python",
     "C++",
@@ -22,6 +22,10 @@ module.exports = {
     "css",
     "jquery",
     "laraval",
+    "swift",
+    "ruby",
+    "typescript",
+    "sql",
   ],
   socialName : [
     "BOB FB Feed",
