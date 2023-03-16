@@ -1,11 +1,15 @@
 module.exports = {
   prefix: "/",
   owner: "853305433746178089",
+  serverID : "867402580883800074",
   token: "MTA1OTM4NjEzNTI0MTAzNTg3Ng.GEpOoc._HIGpBlhoSlYiautqicZdMbvNra_G02P3UuX4Q", //BOT-TEST
   OPEN_AI_API_KEY: "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",
   conversationChannels: "1011270171517788200",
   newFeedChannels: "1011270171517788200",
   chatCh: "1075967372109824060",
+  allowCreateTemporaryCHformember : true,// this is auto create voice channel for members (set to false if you dont want member create they temporaray voice Channls)
+  ListenerCHForTem: "1085255632271183872", // this listener Chennels for wait member join to create personal channel ( if work if allowCreateTemporaryCHformember : true)
+  ListenerCHForTemcategoryChannelId: "890639547787014194",// here's the category of listener Voice chennels
   memberMessageAls: [
   ],
   codePreLeng : [
@@ -26,6 +30,7 @@ module.exports = {
     "ruby",
     "typescript",
     "sql",
+    "node"
   ],
   socialName : [
     "BOB FB Feed",

@@ -1,5 +1,7 @@
 const { Client, Collection, Intents } = require("discord.js");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INTEGRATIONS, Intents.FLAGS.GUILD_WEBHOOKS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_TYPING, Intents.FLAGS.GUILD_SCHEDULED_EVENTS], partials: ["USER", "CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION", "GUILD_SCHEDULED_EVENT"] });
+const client = new Client({ 
+  intents: 32767,
+});
 const config = require("./src/config.js");
 const { readdirSync } = require("fs")
 const moment = require("moment");
@@ -76,17 +78,12 @@ client.on("messageCreate", (msg) => {
   }
 })
 
-//call member name
-// const callMemberName = require('./src/events/sayWelcome.js')
-client.on('voiceStateUpdate', (oldState, newState) => {
-  const guilds = newState.guild.id;
-  const voiceChannel = newState.channelID;
-  joinVoiceChannel({
-    channelId: voiceChannel, // voice channel
-    guildId: guilds, //Server ID 
-    adapterCreator: newState.guild.voiceAdapterCreator,
-    selfDeaf: false,
-  });
+client.on('voiceStateUpdate', async (oldState, newState) => {
+  const CreateTemporaryVoiceChennels = require("./temporaryChannels.js")
+  const AllowCreateTemporary  = config.allowCreateTemporaryCHformember;
+  if(AllowCreateTemporary){
+    await CreateTemporaryVoiceChennels.CreateVoiceChannelsTem(oldState, newState)
+  }
 })
 //event-handler
 readdirSync('./src/events').forEach(async file => {
