@@ -1,4 +1,4 @@
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const client = new Client({ 
   intents: 32767,
 });
@@ -10,9 +10,8 @@ const { Routes } = require('discord-api-types/v9');
 client.commands = new Collection()
 const { joinVoiceChannel,getVoiceConnection } = require('@discordjs/voice');
 const rest = new REST({ version: '9' }).setToken(config.token);
-
 const log = l => { console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] ${l}`) };
-
+const simsiApi = require('./src/message/simsimiap.js')
 //command-handler
 const commands = [];
 readdirSync('./src/commands').forEach(async file => {
@@ -63,28 +62,36 @@ client.on("messageCreate", (msg) => {
 
   //Simsimi Random reply member message
   if (msg.channel.id == config.chatCh) {
-    const simsiApi = require('./src/message/simsimiap.js')
-    const chatCh = client.channels.cache.get(config.chatCh);
     const randomReplyMessage = Math.floor(Math.random() * 1200);
     if (msg.author.bot) {
       return;
     } else {
-      console.log(randomReplyMessage)
-      //msg.reply(`message random as ${randomReplyMessage} of 1000 \n bot will respond more 1000 of value`)
-      if (randomReplyMessage > 1000) {
+      if (randomReplyMessage > 700) {
         simsiApi.randomReplyMessage(msg.content, msg)
       }
     }
   }
 })
-
 client.on('voiceStateUpdate', async (oldState, newState) => {
   const CreateTemporaryVoiceChennels = require("./temporaryChannels.js")
   const AllowCreateTemporary  = config.allowCreateTemporaryCHformember;
   if(AllowCreateTemporary){
-    await CreateTemporaryVoiceChennels.CreateVoiceChannelsTem(oldState, newState)
+    await CreateTemporaryVoiceChennels.CreateVoiceChannelsTem(oldState, newState, client)
   }
 })
+// Monitor user delete message 
+client.on("messageDelete", (msgDelete) => {
+  const LogChannels= client.channels.cache.get(config.logChannels);
+  const logEmbed = new MessageEmbed()
+  .setColor('RANDOM')
+  .setAuthor({ name: 'Message Delete', iconURL: 'https://media1.giphy.com/media/YfA3Hwj9NBrkwdKRWp/giphy.gif?cid=6c09b9523iakbxdtqyj14fadwoqs3pba39s5n0x23o8gka7v&rid=giphy.gif&ct=s', url: '' })
+  .setDescription(`Member **${msgDelete.author.username}** was delete a message from <#${msgDelete.channelId}>`)
+  .setThumbnail(msgDelete.author.displayAvatarURL())
+  .addFields(
+		{ name: 'Message content', value: msgDelete.content});
+    LogChannels.send({ embeds: [logEmbed] })
+  //LogChannels.send(`!USER DELETE MESSAGE \n **${msgDelete.author.username}** was delete from CH <#${msgDelete.channelId}> the message content : \n` + "```\n" + msgDelete.content + "\n```");
+}); 
 //event-handler
 readdirSync('./src/events').forEach(async file => {
   const event = require(`./src/events/${file}`);

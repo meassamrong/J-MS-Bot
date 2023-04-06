@@ -7,7 +7,6 @@ const randomReplyMessage = {
     simsimi(msgContent)
       .then(response => {
         msg.reply(response);
-        //console.log('simsimi say:', response); // What's up ?
       });
   }
 }
