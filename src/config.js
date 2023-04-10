@@ -4,9 +4,9 @@ module.exports = {
   serverID : "867402580883800074",
   token: "MTA1OTM4NjEzNTI0MTAzNTg3Ng.GEpOoc._HIGpBlhoSlYiautqicZdMbvNra_G02P3UuX4Q", //BOT-TEST
   OPEN_AI_API_KEY: "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",
-  conversationChannels: "1011270171517788200",
+  conversationChannels: "891907664764882954",
   newFeedChannels: "1011270171517788200",
-  chatCh: "891907664764882954",
+  chatCh: "34343434",
   allowCreateTemporaryCHformember : true,// this is auto create voice channel for members (set to false if you dont want member create they temporaray voice Channls)
   ListenerCHForTem: "1093595019102929087", // this listener Chennels for wait member join to create personal channel ( if work if allowCreateTemporaryCHformember : true)
   ListenerCHForTemcategoryChannelId: "890639547787014194",// here's the category of listener Voice chennels
@@ -35,6 +35,20 @@ module.exports = {
     "vue js",
     "dart",
     "js"
+  ],
+  khmerPreLeng: [
+    'ក',
+    'ខ',
+    'គ',
+    'ឃ',
+    'ង',
+    'ច',
+    'ឆ',
+    'ជ',
+    'ឈ',
+    'ញ',
+
+
   ],
   socialName : [
     "BOB FB Feed",

@@ -30,7 +30,7 @@ const CreateTemporaryVoiceChannels = {
       await delay(4000); // Wait for 200 seconds
        oldState.channel.delete();
        database.deleteData(oldState.channel.id)
-       await sendLog("```\n" + `Room **${oldState.channel.name}**\n` + "```", client)
+       await sendLog("```\n" + `Room **${oldState.channel.name}**\n was deleted !` + "```", client)
     }
   }
 }

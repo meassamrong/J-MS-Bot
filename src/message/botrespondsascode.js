@@ -5,9 +5,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 const codePreLeng = config.codePreLeng;
-const openaiConfig = {
 
-}
 const botRepAscode = {
     async resondindAscode(msg) {
         const res = await openai.createCompletion({
