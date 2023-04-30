@@ -4,7 +4,7 @@
   "description": "This is project make for intergrate discord bot with open AI API",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
