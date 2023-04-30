@@ -1,0 +1,1 @@
+**Copy config.js.example to config.js in src directory and config its.
